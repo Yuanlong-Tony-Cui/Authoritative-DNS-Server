@@ -1,3 +1,4 @@
 Notes:
-1. Run server.py first, then run client.py.
-2. 
+1. Open one terminal and run `python3 server.py`
+2. Open another terminal and run `python3 client.py`
+3. 

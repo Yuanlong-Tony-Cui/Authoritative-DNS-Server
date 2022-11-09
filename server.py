@@ -11,7 +11,7 @@ print("Server running...")
 default_map = {
     "Type": "IN",
     "Class": "A",
-    "TTL": 160,
+    "TTL": "160",
     "IP address": []
 }
 domain_name_dict = {
@@ -22,7 +22,7 @@ domain_name_dict = {
     "amazon.ca": default_map.copy()
 }
 domain_name_dict["google.com"].update({
-    "TTL": 260,
+    "TTL": "260",
     "IP address": ["192.165.1.1", "192.165.1.10"]
 })
 domain_name_dict["youtube.com"].update({
