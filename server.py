@@ -9,8 +9,8 @@ print("Server running...")
 
 # A domain-name-to-IP-address map:
 default_map = {
-    "Type": "IN",
-    "Class": "A",
+    "Type": "A",
+    "Class": "IN",
     "TTL": "160",
     "IP address": []
 }
