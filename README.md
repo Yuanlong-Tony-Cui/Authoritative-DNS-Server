@@ -13,7 +13,7 @@ The client-side terminal will then print out all the available resource records 
 At the same time, the server-side terminal will print out the DNS requests and responses as hexadecimal strings.
 
 ## Step 3
-To end the session, instead of entering a domain name, now enter "end" in the client-side terminal.
+To end the session, instead of entering a domain name, now enter `end` in the client-side terminal.
 
 The client-side terminal will then print out "Session ended" to indicate the client has been closed.
 
