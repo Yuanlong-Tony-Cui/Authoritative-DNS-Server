@@ -127,7 +127,7 @@ while True:
             "type " + resource_records["type_arr"][idx] + ", " + \
             "class " + resource_records["class_arr"][idx] + ", " + \
             "TTL " + resource_records["ttl_arr"][idx] + ", " + \
-            "addr (4) " + resource_records["ip_addr_arr"][idx]
+            "addr (" + str(len(ip_addr.split("."))) + ") " + ip_addr
         if (idx + 1) != len(resource_records["ip_addr_arr"]):
             output_str += "\n"
     print("Output:")
