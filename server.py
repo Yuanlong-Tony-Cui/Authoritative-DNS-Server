@@ -6,7 +6,7 @@ serverIP = "127.0.0.1"
 serverPort = 10000
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind((serverIP, serverPort))
-print("Server running...")
+# print("Server running...")
 
 # A domain-name-to-IP-address map:
 default_map = {
@@ -42,18 +42,19 @@ domain_name_dict["amazon.ca"].update({
 
 
 def find_domain_name(arg_query_str):
-    query_hex_arr = arg_query_str.split(" ")
+    query_hex_arr = arg_query_str.replace("\n", "").split(" ")
     name = ""
+    i = 0
     for hex_item in query_hex_arr:
-        i = query_hex_arr.index(hex_item)
         if i > 12:
-            if hex_item == "00":
+            if hex_item == "00":    # Indicator for termination
                 break
             if int(hex_item, 16) < 10:  # integer: 0 ~ 9
                 if i != 12:
                     name += "."
             else:   # chars
                 name += chr(int(hex_item, 16))
+        i += 1
     return name
 
 
@@ -141,10 +142,8 @@ def format_hex_str(arg_hex_str):
 
 while True:
     client_req, clientAddress = serverSocket.recvfrom(2048)
-    # print(client_req, clientAddress)
     query_hex_str = client_req.decode()
     domain_name = find_domain_name(query_hex_str)
-    # print(domain_name)
     print("Request:")
     print(query_hex_str)
 
@@ -159,6 +158,6 @@ while True:
     )
     dns_response = format_hex_str(dns_res_header + dns_res_question + dns_res_answer)
     print("Response:")
-    print(dns_response)
+    print(dns_response, "\n")
     serverSocket.sendto(dns_response.encode(), clientAddress)
 
