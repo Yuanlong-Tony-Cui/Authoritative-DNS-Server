@@ -1,3 +1,5 @@
+This repository simulates DNS requests and responses being generated and sent between a client and an authoritative DNS server.
+
 # Instructions:
 
 ## Step 1
